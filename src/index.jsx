@@ -2,14 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { StyledEngineProvider } from '@mui/material/styles'; 
+import { StyledEngineProvider } from "@mui/material/styles";
+import { Provider } from "react-redux";
+import store, { persistor } from "./store";
+import { PersistGate } from "reduxjs-toolkit-persist/lib/integration/react";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <StyledEngineProvider injectFirst>
-      <App />
-    </StyledEngineProvider>
+    <Provider store={store}>
+    <PersistGate loading={null} persistor={persistor}>
+      <StyledEngineProvider injectFirst>
+        <App />
+      </StyledEngineProvider>
+     </PersistGate>
+    </Provider>
   </React.StrictMode>
 );

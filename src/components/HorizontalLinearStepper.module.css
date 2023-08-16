@@ -1,3 +1,20 @@
-/* .config_wrap {
-    background: rgb(207, 173, 173);
-} */
+.buttons {
+    width: 270px;
+    height: 64px;
+    padding: 18px 16px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background: var(--main-blue, #008df2);
+}
+
+.buttonNext {
+    color: var(--white, #FFF);
+    text-align: center;
+    font-family: Open Sans;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    background: none;
+}

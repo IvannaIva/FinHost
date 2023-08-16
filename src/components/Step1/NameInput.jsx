@@ -1,13 +1,28 @@
 import React from "react";
 import Input from "@mui/material/Input";
+import "../styles/App.css";
 
-function NameInput({ value, onChange }) {
+function NameInput({ name, handleNameChange, selectedFile }) {
+
+  const hasSelectedFile = selectedFile !== null;
+
   return (
-    <Input
-      placeholder="Name"
-      value={value}
-      onChange={onChange}
-    />
+    <div className="nameAplic">
+      <p className="description">Enter the name of Application:</p>
+      <div className="input_name">
+        <Input
+          placeholder="Name"
+          value={name}
+          onChange={handleNameChange}
+          className="custom-input" 
+          // disabled={hasSelectedFile}
+          
+        />
+        {hasSelectedFile && (
+        <p style={{ color: "red" }}>Logo is uploaded. Delete it to enter name.</p>
+      )}
+      </div>
+    </div>
   );
 }
 
