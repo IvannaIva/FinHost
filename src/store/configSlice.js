@@ -7,6 +7,8 @@ const initialState = {
     selectedCheckboxes: {},
     qrCodeGenerated: false,
     email: "",
+    selectedFile: null,
+
 };
 
 const configSlice = createSlice({
@@ -16,6 +18,21 @@ const configSlice = createSlice({
         setName: (state, action) => {
             state.name = action.payload;
         },
+        setSelectedFile: (state, action) => {
+            state.selectedFile = action.payload;
+        },
+        // setSelectedFile: (state, action) => {
+        //     const { file } = action.payload;
+        //     if (file) {
+        //         state.selectedFile = {
+        //             file,
+        //             objectURL: URL.createObjectURL(file)
+        //         };
+        //     } else {
+        //         state.selectedFile = null;
+        //     }
+        // },
+
         setColorPhone: (state, action) => {
             state.selectedColorPhone = action.payload;
             state.phoneLayoutUrl = `/assets/images/phones/${action.payload}.svg`;
@@ -41,6 +58,8 @@ const configSlice = createSlice({
         },
 
         clearState: () => initialState,
+
+
     },
 });
 
@@ -52,5 +71,7 @@ export const {
     setQRCodeGenerated,
     clearState,
     setEmail,
+    setSelectedFile
+
 } = configSlice.actions;
 export default configSlice.reducer;

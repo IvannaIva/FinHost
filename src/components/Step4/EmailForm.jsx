@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button,Input } from "@mui/material";
 import style from "../HorizontalLinearStepper.module.css";
 import { useDispatch } from "react-redux";
 import { setQRCodeGenerated } from "../../store/configSlice";
@@ -24,9 +24,9 @@ const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
   };
 
   return (
-    <div>
+    <div className="step4-form">
       <form onSubmit={handleSubmit(handleGenerateQRCode)}>
-        <TextField 
+        <Input 
           label="Enter Email"
           {...register("email", {
             required: "Email is required",
@@ -35,6 +35,7 @@ const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
               message: "Invalid email format",
             },
           })}
+          placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           fullWidth

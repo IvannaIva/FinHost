@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Input from "@mui/material/Input";
 import "../styles/App.css";
 
-function NameInput({ name, handleNameChange, selectedFile }) {
+function NameInput({ name, handleNameChange, iconUploaded }) {
+  // const [nameEntered, setNameEntered] = useState(Boolean(name));
 
-  const hasSelectedFile = selectedFile !== null;
+  //  const hasSelectedFile = selectedFile !== null;
 
   return (
     <div className="nameAplic">
@@ -14,13 +15,12 @@ function NameInput({ name, handleNameChange, selectedFile }) {
           placeholder="Name"
           value={name}
           onChange={handleNameChange}
-          className="custom-input" 
+          className="custom-input"
           // disabled={hasSelectedFile}
-          
         />
-        {hasSelectedFile && (
+        {/* {nameEntered && (
         <p style={{ color: "red" }}>Logo is uploaded. Delete it to enter name.</p>
-      )}
+      )} */}
       </div>
     </div>
   );

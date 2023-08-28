@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ReactSVG } from "react-svg";
 import ColorPalette from "./ColorPalette";
 import Grid from "@mui/material/Grid";
@@ -15,6 +15,16 @@ const Step2 = () => {
     "light_blue",
     "dark_blue",
   ];
+  useEffect(() => {
+    preloadImages();
+  }, []);
+
+  const preloadImages = () => {
+    colors.forEach((color) => {
+      const img = new Image();
+      img.src = `/assets/images/phones/${color}.svg`;
+    });
+  };
 
   const dispatch = useDispatch();
   const selectedColorPhone = useSelector(
@@ -31,17 +41,24 @@ const Step2 = () => {
     <Grid container spacing={2} alignItems="flex-start" justifyContent="center">
       <Grid item xs={12} md={8}>
         {/* <div className="colorPalette-wrap"> */}
-          <p className="description">Select App palette:</p>
+        <p className="description">Select App palette:</p>
 
-          <ColorPalette
-            colors={colors}
-            selectedColorPhone={selectedColorPhone}
-            onChange={handleColorChange}
-          />
+        <ColorPalette
+          colors={colors}
+          selectedColorPhone={selectedColorPhone}
+          onChange={handleColorChange}
+        />
         {/* </div> */}
       </Grid>
       <Grid item xs={12} md={4}>
+        <div style={{
+          width: 308,
+          height: 560,
+          
+        }}>
         <ReactSVG src={phoneLayoutUrl} alt="Selected Phone" />
+        </div>
+        
       </Grid>
     </Grid>
   );
