@@ -716,25 +716,15 @@ const PhoneLayoutSVG = ({ name, selectedFile }) => {
                 </tspan>
               </text>
 
-              {name ? (
-                <text fontSize="16" fill="black" style={textStyle}>
-                  <tspan x="80" y="250">
-                    {name}
-                  </tspan>
-                </text>
-              ) : (
-                <React.Fragment>
-                  {selectedFile ? (
-                    <image
-                      x="80.5383"
-                      y="122.051"
-                      width="150"
-                      height="150"
-                      xlinkHref={selectedFile.objectURL}
-                    />
-                  ) : null}
-                </React.Fragment>
-              )}
+              {selectedFile ? (
+                <image
+                  x="80.5383"
+                  y="122.051"
+                  width="150"
+                  height="150"
+                  xlinkHref={selectedFile.objectURL}
+                />
+              ) : null}
             </>
           ) : (
             <text fontSize="24" fill="black" x="100" y="250">

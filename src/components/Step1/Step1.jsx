@@ -13,7 +13,7 @@ function Step1({name, selectedFile}) {
   const [error, setError] = useState("");
 
   const handleNameChange = (e) => {
-    const enteredName = e.target.value;
+    const enteredName = e.target.value.slice(0, 115);;
 
     if (selectedFile) {
       setError(

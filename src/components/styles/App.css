@@ -115,10 +115,6 @@
     display: none;
 }
 
-.but_wrap {
-    /* margin: 0 auto; */
-}
-
 .step4-form {
     width: 570px;
 }
@@ -132,46 +128,34 @@
     width: 900px;
 }
 
-
-/* .textNamePhone {
-        width: 200px;
-        height: 100px;
-        background: #ccc;
-    } */
-
-
-/* .interactive-wrapper {
-    z-index: 10;
-    position: absolute;
-    top: 150px;
-    bottom: 170px;
+.phone-layout {
+    position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.interactive-wrapper {
+    position: absolute;
+    /* display: flex; */
     flex-direction: column;
     -webkit-box-pack: center;
     justify-content: center;
-} */
+    width: 180px;
+    height: 250px;
+}
 
-
-/* .interactive-content {
+.interactive-content {
     display: flex;
     align-items: flex-end;
-} */
+}
 
-
-/* .name-text {
-    font-size: 12px;
+.name-text {
+    font-size: 18px;
     line-height: 19px;
-    font-weight: 700;
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    align-items: flex-start;
-} */
-
-.textStyle {
-    position: absolute;
-    z-index: 10;
-    background: #ccc;
+    word-wrap: break-word;
+    max-width: 100%;
 }
 
 @media (max-width: 480px) {
