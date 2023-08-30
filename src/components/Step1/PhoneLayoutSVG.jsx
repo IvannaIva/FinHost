@@ -711,7 +711,7 @@ const PhoneLayoutSVG = ({ name, selectedFile }) => {
                 fontWeight="bold"
                 letterSpacing="0em"
               >
-                <tspan x="107.394" y="300.341">
+                <tspan x="107.394" y="350.341">
                   Welcome to App
                 </tspan>
               </text>

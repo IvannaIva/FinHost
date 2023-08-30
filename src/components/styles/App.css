@@ -152,10 +152,13 @@
 }
 
 .name-text {
-    font-size: 18px;
-    line-height: 19px;
     word-wrap: break-word;
     max-width: 100%;
+    font-weight: 800;
+    color: #1c1d2b;
+    font-family: Open Sans;
+    font-size: 15.197px;
+    line-height: 20px;
 }
 
 @media (max-width: 480px) {
