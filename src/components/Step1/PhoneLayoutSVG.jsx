@@ -4,9 +4,8 @@ import "../styles/App.css";
 
 const PhoneLayoutSVG = ({ name, selectedFile }) => {
   const textStyle = {
-    
-     whiteSpace: "normal",
-    fontSize: "40px", // Додайте розмір шрифту тут
+    whiteSpace: "normal",
+    fontSize: "40px",
   };
 
   return (
@@ -650,94 +649,98 @@ const PhoneLayoutSVG = ({ name, selectedFile }) => {
             d="M79.3544 37.5012H80.468V31.2726H79.3587L77.7314 32.4121V33.4826L79.281 32.3948H79.3544V37.5012Z"
             fill="black"
           />
-          <rect
-            x="58.1436"
-            y="406.424"
-            width="192.712"
-            height="27.1093"
-            rx="2.94667"
-            fill="#1C1D2B"
-          />
-          <text
-            fill="white"
-            fontFamily="Open Sans"
-            fontSize="16"
-            fontWeight="bold"
-            letterSpacing="0px"
-          >
-            <tspan x="140.509" y="424.082">
-              Log In
-            </tspan>
-          </text>
-          <text
-            fill="#1C1D2B"
-            fontFamily="Open Sans"
-            fontSize="8.25067"
-            fontWeight="600"
-            letterSpacing="0em"
-          >
-            <tspan x="179.494" y="455.906">
-              {" "}
-            </tspan>
-          </text>
-          <text
-            fill="#1C1D2B"
-            fontFamily="Open Sans"
-            fontSize="9.42933"
-            fontWeight="bold"
-            letterSpacing="0px"
-          >
-            <tspan x="181.637" y="455.906">
-              Sign Up
-            </tspan>
-          </text>
-          <text
-            fill="#1C1D2B"
-            fontFamily="Open Sans"
-            fontSize="8.25067"
-            letterSpacing="0em"
-          >
-            <tspan x="90.171" y="455.906">
-              Don't have an account?
-            </tspan>
-          </text>
 
-          <text
-            fill="#1C1D2B"
-            fontFamily="Open Sans"
-            fontSize="11.7867"
-            fontWeight="bold"
-            letterSpacing="0em"
-          >
-            <tspan x="107.394" y="300.341">
-              Welcome to App
-            </tspan>
-          </text>
-          {/* <div className="textStyle"> */}
-          {name ? (
-            <text  fontSize="16" fill="black" 
-            
-            style={textStyle}
-            
-            >
-              <tspan x="80" y="250" >
-                {name}
-              </tspan>
-            </text>
+          {name || selectedFile ? (
+            <>
+              <rect
+                x="58.1436"
+                y="406.424"
+                width="192.712"
+                height="27.1093"
+                rx="2.94667"
+                fill="#1C1D2B"
+              />
+              <text
+                fill="white"
+                fontFamily="Open Sans"
+                fontSize="16"
+                fontWeight="bold"
+                letterSpacing="0px"
+              >
+                <tspan x="140.509" y="424.082">
+                  Log In
+                </tspan>
+              </text>
+              <text
+                fill="#1C1D2B"
+                fontFamily="Open Sans"
+                fontSize="8.25067"
+                fontWeight="600"
+                letterSpacing="0em"
+              >
+                <tspan x="179.494" y="455.906">
+                  {" "}
+                </tspan>
+              </text>
+              <text
+                fill="#1C1D2B"
+                fontFamily="Open Sans"
+                fontSize="9.42933"
+                fontWeight="bold"
+                letterSpacing="0px"
+              >
+                <tspan x="181.637" y="455.906">
+                  Sign Up
+                </tspan>
+              </text>
+              <text
+                fill="#1C1D2B"
+                fontFamily="Open Sans"
+                fontSize="8.25067"
+                letterSpacing="0em"
+              >
+                <tspan x="90.171" y="455.906">
+                  Don't have an account?
+                </tspan>
+              </text>
+
+              <text
+                fill="#1C1D2B"
+                fontFamily="Open Sans"
+                fontSize="11.7867"
+                fontWeight="bold"
+                letterSpacing="0em"
+              >
+                <tspan x="107.394" y="300.341">
+                  Welcome to App
+                </tspan>
+              </text>
+
+              {name ? (
+                <text fontSize="16" fill="black" style={textStyle}>
+                  <tspan x="80" y="250">
+                    {name}
+                  </tspan>
+                </text>
+              ) : (
+                <React.Fragment>
+                  {selectedFile ? (
+                    <image
+                      x="80.5383"
+                      y="122.051"
+                      width="150"
+                      height="150"
+                      xlinkHref={selectedFile.objectURL}
+                    />
+                  ) : null}
+                </React.Fragment>
+              )}
+            </>
           ) : (
-            <React.Fragment>
-              {selectedFile ? (
-                <image
-                  x="80.5383"
-                  y="122.051"
-                  width="150"
-                  height="150"
-                  xlinkHref={selectedFile.objectURL}
-                />
-              ) : null}
-            </React.Fragment>
+            <text fontSize="24" fill="black" x="100" y="250">
+              Your Logo
+            </text>
           )}
-          {/* </div> */}
         </g>
         <path
           d="M270.92 158.873H276.724C277.034 158.873 277.283 159.122 277.283 159.431V217.219C277.283 217.528 277.034 217.777 276.724 217.777H270.92C270.611 217.777 270.362 217.528 270.362 217.219V159.431C270.362 159.122 270.611 158.873 270.92 158.873Z"
