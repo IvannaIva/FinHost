@@ -1,20 +1,43 @@
-.buttons {
-    width: 270px;
-    height: 64px;
-    padding: 18px 16px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 8px;
-    background: var(--main-blue, #008df2);
-}
-
-.buttonNext {
-    color: var(--white, #FFF);
-    text-align: center;
-    font-family: Open Sans;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 28px;
-    background: none;
-}
+            .buttons {
+                width: 270px;
+                height: 64px;
+                padding: 18px 16px;
+                justify-content: center;
+                align-items: center;
+                border-radius: 8px;
+                background: var(--main-blue, #008df2);
+            }
+            
+            .buttonNext {
+                color: var(--white, #FFF);
+                text-align: center;
+                font-family: Open Sans;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 28px;
+                background: none;
+            }
+            
+            .customStep {
+                box-sizing: border-box;
+                display: flex;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                font-family: Conthrax;
+                font-style: normal;
+                width: 40px;
+                height: 40px;
+                font-size: 20px;
+                font-weight: 600;
+                border-radius: 57px;
+                color: #008DF2;
+                border: 1px solid var(--Main-blue, #008DF2);
+            }
+            
+            .activeStep {
+                background: var(--Main-blue, #008DF2);
+                color: #FFF;
+                box-shadow: -5px -5px 5px 0px rgba(0, 33, 64, 0.25) inset, 5px 5px 5px 0px rgba(212, 229, 255, 0.25) inset;
+            }
