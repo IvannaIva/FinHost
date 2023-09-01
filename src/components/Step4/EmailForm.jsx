@@ -4,6 +4,7 @@ import { TextField, Button,Input } from "@mui/material";
 import style from "../HorizontalLinearStepper.module.css";
 import { useDispatch } from "react-redux";
 import { setQRCodeGenerated } from "../../store/configSlice";
+import Loading from "./Loading";
 
 const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
   const handleGenerateQRCode = () => {
     console.log("email", email);
     if (isValid || email) {
+     
       dispatch(setQRCodeGenerated(true)); // Показати QR-код
       setShowQRCodeLocal(true);
     }

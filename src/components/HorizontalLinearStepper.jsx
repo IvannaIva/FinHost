@@ -16,7 +16,7 @@ const steps = ["1", "2", "3", "4"]; // Список кроків
 const HorizontalLinearStepper = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const name = useSelector((state) => state.config.name);
-  // const [selectedFile, setSelectedFile] = useState(null);
+
 
   const selectedFile = useSelector((state) => state.config.selectedFile);
   const handleNext = () => {
