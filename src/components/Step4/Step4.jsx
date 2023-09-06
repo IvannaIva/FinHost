@@ -1,25 +1,46 @@
-import React, { useState } from "react";
-import EmailForm from "./EmailForm";
+import React from "react";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Grid";
+import Box from "@mui/material/Box";
+import { useDispatch, useSelector } from "react-redux";
+import { setPrototype } from "../../store/calculateSlice";
 
-import "../styles/App.css"; // Імпортуйте ваші стилі CSS
-import Loading from "./Loading";
+const PrototypeData = [
+  { label: "Yes" },
+  {
+    label: "No",
+  },
+];
 
-const Step4 = () => {
-  const [showQRCode, setShowQRCodeLocal] = useState(false);
+function Step4({setIsSomethingSelected}) {
+  //const [ prototype, setPrototype] = React.useState("");
 
+  const dispatch = useDispatch();
+
+  const prototype = useSelector((state) => state.calculate.prototype);
+
+  const handleDesign = (prototypeLabel) => {
+    setIsSomethingSelected(true);
+    dispatch(setPrototype(prototypeLabel));
+    console.info(`Selected platform: ${prototypeLabel}`);
+  };
 
   return (
-    <div className="center-container">
-      {showQRCode ? (
-        <Loading />
-      ) : (
-        <div>
-          <p className="description">Get your App:</p>
-          <EmailForm setShowQRCodeLocal={setShowQRCodeLocal} />
-        </div>
-      )}
-    </div>
+    <Box className="calculate-box">
+      <p>Do you have a prototype of your app?</p>
+      <Stack className="calculate-grid ">
+        {PrototypeData.map((prot, index) => (
+          <Chip
+            label={prot.label}
+            onClick={() => handleDesign(prot.label)}
+            className={`calculate-chip ${
+              prototype === prot.label ? "selected" : ""
+            }`}
+          />
+        ))}
+      </Stack>
+    </Box>
   );
-};
+}
 
 export default Step4;

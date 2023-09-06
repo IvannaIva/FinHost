@@ -11,11 +11,13 @@ import {
 } from "reduxjs-toolkit-persist";
 import storage from "reduxjs-toolkit-persist/lib/storage";
 import configReducer from "./configSlice";
+import calculateReduser from "./calculateSlice"
 
 
 
 const rootReducer = combineReducers({
     config: configReducer,
+    calculate: calculateReduser,
 
 });
 

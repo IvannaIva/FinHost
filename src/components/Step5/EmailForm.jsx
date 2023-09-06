@@ -1,35 +1,40 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { TextField, Button,Input } from "@mui/material";
-import style from "../HorizontalLinearStepper.module.css";
-import { useDispatch } from "react-redux";
-import { setQRCodeGenerated } from "../../store/configSlice";
-import Loading from "./Loading";
+import { TextField, Button } from "@mui/material";
 
-const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
+import { useDispatch } from "react-redux";
+import { clearState } from "../../store/calculateSlice";
+import "../VerticalLinearStepper.css"
+
+
+const EmailForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
 
+  useEffect(() => {
+    dispatch(clearState());
+
+ }, []);
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm();
 
-  const handleGenerateQRCode = () => {
+  const handleGenerateSubmit = () => {
     console.log("email", email);
     if (isValid || email) {
      
-      dispatch(setQRCodeGenerated(true)); // Показати QR-код
-      setShowQRCodeLocal(true);
+     window.location.href = "https://www.google.com"
     }
   };
 
   return (
-    <div className="step4-form">
-      <form onSubmit={handleSubmit(handleGenerateQRCode)}>
-        <Input 
-          label="Enter Email"
+    <div className="email-form">
+      <form onSubmit={handleSubmit(handleGenerateSubmit)}>
+
+        <TextField 
+          // label="Enter Email"
           {...register("email", {
             required: "Email is required",
             pattern: {
@@ -37,23 +42,24 @@ const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
               message: "Invalid email format",
             },
           })}
+          // variant="outlined"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           fullWidth
           error={!!errors.email}
           helperText={errors.email?.message}
+          className ="custom-textfield"
         />
-        <div className="buttonQr">
+        <div className="buttonEstimat">
         <Button
-          variant="contained"
-          color="primary"
+        
           type="submit"
-          onClick={handleGenerateQRCode}
+          onClick={handleGenerateSubmit}
           disabled={!isValid || !email}
-          className={style.buttons}
+          className="calculateButtonEstimate"
         >
-           <p  className={style.buttonNext}>   Generate QR code</p>
+           <p >Get free estimate</p>
          
         </Button>
         </div>
@@ -63,4 +69,4 @@ const EmailQRCodeGenerator = ({ setShowQRCodeLocal }) => {
   );
 };
 
-export default EmailQRCodeGenerator;
+export default EmailForm;

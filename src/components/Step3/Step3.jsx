@@ -1,30 +1,45 @@
 import React from "react";
-import { ReactSVG } from "react-svg";
-import Grid from "@mui/material/Grid";
-import "../styles/App.css";
-import CheckboxListFeatures from "./CheckboxListFeatures";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { setColorPhone, setPhoneLayout } from "../../store/configSlice";
+import { setNeedDesign } from "../../store/calculateSlice";
 
-const Step3 = () => {
-  //  const dispatch = useDispatch();
+const DesignData = [
+  { label: "Yes" },
+  {
+    label: "No",
+  },
+];
 
-  const phoneLayoutUrl = useSelector((state) => state.config.phoneLayoutUrl);
+function Step3({setIsSomethingSelected}) {
+  //const [ needDesign, setNeedDesign] = React.useState("");
+
+  const dispatch = useDispatch();
+  const needDesign = useSelector((state) => state.calculate.needDesign);
+
+  const handleDesign = (designLabel) => {
+    setIsSomethingSelected(true);
+    dispatch(setNeedDesign(designLabel));
+    console.info(`Selected platform: ${designLabel}`);
+  };
 
   return (
-    <Grid container spacing={2} alignItems="flex-start" justifyContent="center">
-      <Grid item xs={12} md={8}>
-        <div className="check-list-wrap">
-          <p className="description">Conficurate list of features:</p>
-
-          <CheckboxListFeatures />
-        </div>
-      </Grid>
-      <Grid item xs={12} md={4}>
-        <ReactSVG src={phoneLayoutUrl} alt="Selected Phone" />
-      </Grid>
-    </Grid>
+    <Box className="calculate-box">
+      <p>Do you need a design?</p>
+      <Stack className="calculate-grid ">
+        {DesignData.map((design, index) => (
+          <Chip
+            label={design.label}
+            onClick={() => handleDesign(design.label)}
+            className={`calculate-chip ${
+              needDesign === design.label ? "selected" : ""
+            }`}
+          />
+        ))}
+      </Stack>
+    </Box>
   );
-};
+}
 
 export default Step3;

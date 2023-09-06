@@ -1,0 +1,263 @@
+                .container {
+                    position: relative;
+                    width: 100%;
+                    max-width: 1300px;
+                    padding: 0 15px;
+                    margin: 0 auto;
+                }
+                
+                .calculate_title {
+                    text-align: center;
+                    margin-bottom: 40px;
+                }
+                
+                .calculate_title h1 {
+                    position: relative;
+                    font-size: 40px;
+                    line-height: 44px;
+                    font-weight: 700;
+                    padding-bottom: 20px;
+                }
+                
+                .calculate_title h1:after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: 0;
+                    -webkit-transform: translateX(-50%);
+                    -ms-transform: translateX(-50%);
+                    transform: translateX(-50%);
+                    height: 6px;
+                    width: 57px;
+                    background: #03d6a1;
+                }
+                
+                .calculateButtonNext {
+                    font-size: 17px;
+                    width: 144px;
+                    height: 50px;
+                    border-radius: 11px;
+                    color: #ffffff;
+                    background: #363a47;
+                    cursor: pointer;
+                }
+                
+                .calculateButtonNext:hover {
+                    background-color: #03d6a1;
+                }
+                
+                .calculateButtonBack,
+                .calculateButtonSkip {
+                    font-size: 17px;
+                    width: 144px;
+                    height: 50px;
+                    border-radius: 11px;
+                    transition: 0.1s;
+                    color: black;
+                    background-color: #ffffff;
+                    border: 1px solid black;
+                    cursor: pointer;
+                }
+                
+                .calculateButtonEstimate {
+                    transition: 0.1s;
+                    width: 200px;
+                    height: 50px;
+                    background-color: #03d6a1;
+                    border: 1px solid #03d6a1;
+                    color: #fff;
+                    font-size: 17px;
+                    border-radius: 11px;
+                    margin: 0 auto;
+                }
+                
+                .buttonEstimat {
+                    text-align: center;
+                    align-items: center;
+                    padding-top: 20px;
+                }
+                
+                .calculateButtonEstimate :hover {
+                    background-color: #fff;
+                    color: #03d6a1;
+                }
+                
+                .calculateButtonSkip:hover {
+                    background-color: #03d6a1;
+                    color: #ffffff;
+                    border: none;
+                }
+                
+                .calculateButtonBack:hover {
+                    color: #03d6a1;
+                    border: 1px solid #03d6a1;
+                    background-color: white;
+                }
+                
+                .buttonsNextSkip {
+                    display: flex;
+                    gap: 20px;
+                }
+                
+                .calculate_wrap {
+                    max-width: 1100px;
+                    margin-bottom: 90px;
+                    display: flex;
+                    margin: 0 auto;
+                    align-items: flex-start;
+                }
+                
+                .calculate-box p {
+                    color: #212b36;
+                    font-size: 30px;
+                    line-height: 38px;
+                    /* width: 85%; */
+                    margin-bottom: 20px;
+                }
+                
+                .calculate_left {
+                    background: #ffffff;
+                    -webkit-box-shadow: 0px 0px 77px rgba(0, 0, 0, 0.0588235);
+                    box-shadow: 0px 0px 77px rgba(0, 0, 0, 0.0588235);
+                    border-radius: 15px;
+                    min-width: 270px;
+                    margin-right: 100px;
+                    margin: 25px 10px 0 25px;
+                }
+                
+                .calculate-right {
+                    top: 10px;
+                    width: 100%;
+                }
+                
+                .calculate-chip {
+                    padding: 15px;
+                    text-align: center;
+                    height: 100%;
+                    width: 47%;
+                    /* Фіксована ширина */
+                    color: #03d6a1;
+                    font-size: 17px;
+                    text-align: center;
+                    border: 2px solid #03d6a1;
+                    border-radius: 11px;
+                    margin-bottom: 35px;
+                    background-color: #fff;
+                    display: flex;
+                    align-items: center;
+                }
+                
+                .calculate-chip:hover {
+                    color: rgb(0, 0, 0);
+                    border: 2px solid #000000;
+                    background-color: #fff;
+                }
+                
+                .selected {
+                    background-color: #03d6a1;
+                    color: #fff;
+                }
+                
+                .calculate-grid {
+                    /* display: -webkit-box; */
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+                
+                .css-6od3lo-MuiChip-label {
+                    white-space: normal;
+                }
+                
+                .calculate-finish {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+                
+                .calculate-finish h2 {
+                    text-align: center;
+                    margin-bottom: 40px;
+                    color: #212b36;
+                    font-size: 30px;
+                    line-height: 38px;
+                }
+                
+                .calculate-finish-text {
+                    text-align: center;
+                    /* margin: 0 auto; */
+                }
+                
+                .calculate-finish-text h3 {
+                    color: #03d6a1;
+                    font-weight: 700;
+                    font-size: 28px;
+                    line-height: 35px;
+                }
+                
+                .calculate-finish-text p {
+                    color: #7d7d7d;
+                    font-size: 20px;
+                    line-height: 38px;
+                }
+                
+                .css-10596zk {
+                    justify-content: center;
+                }
+                
+                .card-culc {
+                    display: flex;
+                    justify-content: space-evenly;
+                    text-align: center;
+                }
+                
+                .email-form {
+                    margin: 0 auto;
+                    width: 600px;
+                }
+                
+                .calculate_left .MuiStepLabel-label {
+                    all: unset;
+                    font-size: 20px;
+                    color: #000000;
+                }
+                
+                @media (max-width: 700px) {
+                    .container {
+                        width: 420px;
+                    }
+                    .custom-stepper {
+                        width: 100%;
+                    }
+                    .App_container {
+                        text-align: center;
+                        width: 100%;
+                        margin: 0 auto;
+                        width: 360px;
+                        height: 1400px;
+                    }
+                    .calculate_wrap {
+                        align-items: center;
+                        flex-direction: column-reverse;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .calculate-grid {
+                        justify-content: space-around;
+                    }
+                    .buttons {
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                    .buttonsNextSkip {
+                        justify-content: center;
+                    }
+                    .calculate-box p {
+                        text-align: center;
+                    }
+                    .calculate-chip {
+                        width: 80%;
+                    }
+                    .email-form {
+                        width: 400px;
+                    }
+                }

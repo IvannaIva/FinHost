@@ -4,7 +4,7 @@ import ConfigPage from "./components/ConfigPage";
 
 function App() {
   return (
-    <div className="App_container">
+    <div>
       <ConfigPage/>
     </div>
   );

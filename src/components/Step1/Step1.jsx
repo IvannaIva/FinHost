@@ -1,60 +1,44 @@
-import React, { useState } from "react";
-import { Grid } from "@mui/material";
-import NameInput from "./NameInput";
-import FileUpload from "./FileUpload";
-import PhoneLayout from "./PhoneLayout";
+import React from "react";
+import Chip from "@mui/material/Chip";
+import Stack from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { setName, setSelectedFile } from "../../store/configSlice";
+import { setSelectedPlatform } from "../../store/calculateSlice";
 
-function Step1({name, selectedFile}) {
+const PlatformData = [
+  { label: "iOS" },
+  { label: "Android" },
+  { label: "Cross platform (Android + iOS)" },
+];
+
+function Step1({setIsSomethingSelected}) {
+  // const [selectedPlatform, setSelectedPlatform] = React.useState("");
   const dispatch = useDispatch();
+  const selectedPlatform = useSelector(
+    (state) => state.calculate.selectedPlatform
+  );
 
-
-  const [error, setError] = useState("");
-
-  const handleNameChange = (e) => {
-    const enteredName = e.target.value.slice(0, 115);;
-
-    if (selectedFile) {
-      setError(
-        "Either name or logo can be submitted. Please delete name in order to upload the logo."
-      );
-    } else {
-      dispatch(setName(enteredName));
-    }
+  const handlePlatformSelect = (platformLabel) => {
+    setIsSomethingSelected(true);
+    dispatch(setSelectedPlatform(platformLabel));
+    console.info(`Selected platform: ${platformLabel}`);
   };
-
-  const onFileChange = (file) => {
-    dispatch(setSelectedFile(file));
-  };
-
-  const onDeleteImage = () => {
-    dispatch(setSelectedFile(null)); 
-  };
-
 
   return (
-    <Grid container spacing={2} alignItems="center" justifyContent="center">
-      <Grid item>
-        <div className="step1_name_file">
-          <NameInput
-            name={name}
-            handleNameChange={handleNameChange}
-            
+    <Box className="calculate-box">
+      <p>Which platform will you use for mobile app development?</p>
+      <Stack className="calculate-grid ">
+        {PlatformData.map((platform, index) => (
+          <Chip
+            label={platform.label}
+            onClick={() => handlePlatformSelect(platform.label)}
+            className={`calculate-chip ${
+              selectedPlatform === platform.label ? "selected" : ""
+            }`}
           />
-          {error && <p className="error">{error}</p>}
-          <FileUpload
-            onFileChange={onFileChange}
-            name={name}
-            selectedFile={selectedFile}
-            onDeleteImage={onDeleteImage}
-          />
-        </div>
-      </Grid>
-      <Grid item>
-        <PhoneLayout name={name} selectedFile={selectedFile} />
-      </Grid>
-    </Grid>
+        ))}
+      </Stack>
+    </Box>
   );
 }
 
