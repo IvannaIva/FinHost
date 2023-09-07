@@ -3,16 +3,16 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { setPrototype } from "../../store/calculateSlice";
+import { setPrototype, addStepData } from "../../store/calculateSlice";
 
 const PrototypeData = [
-  { label: "Yes" },
+  { label: "Yes",  hourMin: 2, hourMax: 3, priceMin: 300, priceMax: 420},
   {
-    label: "No",
+    label: "No",hourMin: 0, hourMax: 0, priceMin: 0, priceMax: 0
   },
 ];
 
-function Step4({setIsSomethingSelected}) {
+function Step4({setIsSomethingSelected, activeStep}) {
   //const [ prototype, setPrototype] = React.useState("");
 
   const dispatch = useDispatch();
@@ -21,7 +21,8 @@ function Step4({setIsSomethingSelected}) {
 
   const handleDesign = (prototypeLabel) => {
     setIsSomethingSelected(true);
-    dispatch(setPrototype(prototypeLabel));
+    dispatch(setPrototype(prototypeLabel.label));
+    dispatch(addStepData({ step: activeStep, data: prototypeLabel }));
     console.info(`Selected platform: ${prototypeLabel}`);
   };
 
@@ -32,7 +33,7 @@ function Step4({setIsSomethingSelected}) {
         {PrototypeData.map((prot, index) => (
           <Chip
             label={prot.label}
-            onClick={() => handleDesign(prot.label)}
+            onClick={() => handleDesign(prot)}
             className={`calculate-chip ${
               prototype === prot.label ? "selected" : ""
             }`}

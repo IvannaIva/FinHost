@@ -1,11 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    selectedPlatform: "",
-    selectedStateApp: "",
+    selectedPlatform: null,
+    selectedStateApp: null,
     needDesign: "",
     prototype: "",
-    typeAuthentication: [],
+    typeAuthentication: "",
+    stepData: [],
 };
 
 const calculateSlice = createSlice({
@@ -30,15 +31,16 @@ const calculateSlice = createSlice({
             state.typeAuthentication = action.payload;
         },
 
+        addStepData: (state, action) => {
+            const { step, data } = action.payload;
+            state.stepData[step] = data; // Зберігаємо обраний об'єкт для конкретного кроку
+        },
+
+        clearCalculate: (state) => {
+            state.calculate = initialState.calculate; // Скидаємо дані в calculate до початкового стану для цього ключа
+        },
+
         clearState: () => initialState,
-        // toggleTypeAuthentication: (state, action) => {
-        //     const label = action.payload;
-        //     if (state.typeAuthentication[label]) {
-        //         delete state.typeAuthentication[label];
-        //     } else {
-        //         state.typeAuthentication[label] = true;
-        //     }
-        // },
     },
 });
 
@@ -49,5 +51,7 @@ export const {
     setPrototype,
     toggleTypeAuthentication,
     clearState,
+    addStepData,
+    clearCalculate,
 } = calculateSlice.actions;
 export default calculateSlice.reducer;

@@ -85,19 +85,19 @@ export default function VerticalLinearStepper({ setAllStepsCompleted }) {
       <div className="calculate-right">
         {/* <Typography>{steps[activeStep]}</Typography> */}
         {activeStep === 0 && (
-          <Step1 setIsSomethingSelected={setIsSomethingSelected} />
+          <Step1 activeStep={activeStep} setIsSomethingSelected={setIsSomethingSelected} />
         )}
         {activeStep === 1 && (
-          <Step2 setIsSomethingSelected={setIsSomethingSelected} />
+          <Step2 activeStep={activeStep} setIsSomethingSelected={setIsSomethingSelected} />
         )}
         {activeStep === 2 && (
-          <Step3 setIsSomethingSelected={setIsSomethingSelected} />
+          <Step3 activeStep={activeStep} setIsSomethingSelected={setIsSomethingSelected} />
         )}
         {activeStep === 3 && (
-          <Step4 setIsSomethingSelected={setIsSomethingSelected} />
+          <Step4 activeStep={activeStep} setIsSomethingSelected={setIsSomethingSelected} />
         )}
         {activeStep === 4 && (
-          <Step5 setIsSomethingSelected={setIsSomethingSelected} />
+          <Step5 activeStep={activeStep} setIsSomethingSelected={setIsSomethingSelected} />
         )}
 
         <div className="buttons">

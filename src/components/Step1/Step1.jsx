@@ -3,25 +3,27 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedPlatform } from "../../store/calculateSlice";
+import { setSelectedPlatform, addStepData } from "../../store/calculateSlice";
 
 const PlatformData = [
-  { label: "iOS" },
-  { label: "Android" },
-  { label: "Cross platform (Android + iOS)" },
+  { label: "iOS", hourMin: 2, hourMax: 3, priceMin: 300, priceMax: 420 },
+  { label: "Android", hourMin: 1, hourMax: 2, priceMin: 200, priceMax: 230},
+  { label: "Cross platform (Android + iOS)", hourMin: 4, hourMax: 5, priceMin: 1000, priceMax: 500 },
 ];
 
-function Step1({setIsSomethingSelected}) {
+function Step1({setIsSomethingSelected, activeStep}) {
   // const [selectedPlatform, setSelectedPlatform] = React.useState("");
   const dispatch = useDispatch();
   const selectedPlatform = useSelector(
     (state) => state.calculate.selectedPlatform
   );
 
-  const handlePlatformSelect = (platformLabel) => {
+  const handlePlatformSelect = (platform) => {
     setIsSomethingSelected(true);
-    dispatch(setSelectedPlatform(platformLabel));
-    console.info(`Selected platform: ${platformLabel}`);
+     dispatch(setSelectedPlatform(platform.label));
+    
+    dispatch(addStepData({ step: activeStep, data: platform }));
+    console.info(`Selected platform: ${platform}`);
   };
 
   return (
@@ -31,7 +33,7 @@ function Step1({setIsSomethingSelected}) {
         {PlatformData.map((platform, index) => (
           <Chip
             label={platform.label}
-            onClick={() => handlePlatformSelect(platform.label)}
+            onClick={() => handlePlatformSelect(platform)}
             className={`calculate-chip ${
               selectedPlatform === platform.label ? "selected" : ""
             }`}

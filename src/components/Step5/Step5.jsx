@@ -3,42 +3,69 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { setSelectedStateApp } from "../../store/calculateSlice";
+import { toggleTypeAuthentication, addStepData } from "../../store/calculateSlice";
 
 const typeAuthData = [
-  { label: "Email" },
+  { label: "Email", hourMin: 2, hourMax: 3, priceMin: 300, priceMax: 420 },
   {
     label: "Phone Number",
+    hourMin: 2,
+    hourMax: 3,
+    priceMin: 300,
+    priceMax: 420,
   },
   {
     label: "Facebook",
+    hourMin: 2,
+    hourMax: 3,
+    priceMin: 300,
+    priceMax: 420,
   },
-  { label: "Apple" },
-  { label: "Google" },
+  { label: "Apple", hourMin: 2, hourMax: 3, priceMin: 300, priceMax: 420 },
+  { label: "Google", hourMin: 2, hourMax: 3, priceMin: 300, priceMax: 420 },
 
   {
     label: "SAML",
+    hourMin: 2,
+    hourMax: 3,
+    priceMin: 300,
+    priceMax: 420,
   },
   {
     label: "2-Factor authenticator",
+    hourMin: 2,
+    hourMax: 3,
+    priceMin: 300,
+    priceMax: 420,
   },
   {
     label: "Other",
+    hourMin: 2,
+    hourMax: 3,
+    priceMin: 300,
+    priceMax: 420,
   },
-  { label: "I don't need" },
+  {
+    label: "I don't need",
+    hourMin: 2,
+    hourMax: 3,
+    priceMin: 300,
+    priceMax: 420,
+  },
 ];
 
-function Step5({setIsSomethingSelected}) {
-  const [typeAuthentication, setTypeAuthentication] = React.useState([]);
+function Step5({ setIsSomethingSelected, activeStep }) {
+  // const [typeAuthentication, setTypeAuthentication] = React.useState([]);
 
   const dispatch = useDispatch();
-  const selectedPlatform = useSelector(
-    (state) => state.calculate.selectedPlatform
+  const typeAuthentication = useSelector(
+    (state) => state.calculate.typeAuthentication
   );
 
   const handleDesign = (typeAuthLabel) => {
     setIsSomethingSelected(true);
-    setTypeAuthentication(typeAuthLabel);
+    dispatch(toggleTypeAuthentication(typeAuthLabel.label));
+    dispatch(addStepData({ step: activeStep, data: typeAuthLabel }));
     console.info(`Selected platform: ${typeAuthLabel}`);
   };
 
@@ -50,7 +77,7 @@ function Step5({setIsSomethingSelected}) {
           <Chip
             variant="outlined"
             label={type.label}
-            onClick={() => handleDesign(type.label)}
+            onClick={() => handleDesign(type)}
             className={`calculate-chip ${
               typeAuthentication === type.label ? "selected" : ""
             }`}

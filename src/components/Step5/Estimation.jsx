@@ -5,14 +5,10 @@ import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import EmailForm from "./EmailForm";
 import CardCulc from "./CardCulc";
-import { setAllStepsCompleted, clearState } from "../../store/calculateSlice";
+
+
 
 const Estimation = ({}) => {
-  const allStepsCompleted = useSelector(
-    (state) => state.calculate.allStepsCompleted
-  );
-  const dispatch = useDispatch();
-
 
   return (
     <div className="calculate-finish">

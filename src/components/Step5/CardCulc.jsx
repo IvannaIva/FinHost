@@ -6,8 +6,12 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import AccessTimeOutlinedIcon from "@mui/icons-material/AccessTimeOutlined";
 import PaidOutlinedIcon from "@mui/icons-material/PaidOutlined";
+import { calculateHoursAndPrice } from "./CalculateHoursAndPrice"
 
 export default function CardCulc() {
+  const { totalHourMin, totalHourMax, totalPriceMin, totalPriceMax } = calculateHoursAndPrice();
+
+
   return (
     <div className="card-culc">
       {" "}
@@ -19,10 +23,10 @@ export default function CardCulc() {
               Hours of development
             </Typography>
             <Typography variant="h6" color="text.bold">
-              26 hours
+            {totalHourMin}$
             </Typography>
             <Typography variant="h6" color="text.bold">
-              34 hours
+             {totalHourMax}$
             </Typography>
           </CardContent>
         </CardActionArea>
@@ -35,10 +39,10 @@ export default function CardCulc() {
               Cost of building your app
             </Typography>
             <Typography variant="h6" color="text.bold">
-              650 USD
+            {totalPriceMin} USD
             </Typography>
             <Typography variant="h6" color="text.bold">
-              845 USD
+            {totalPriceMax} USD
             </Typography>
           </CardContent>
         </CardActionArea>

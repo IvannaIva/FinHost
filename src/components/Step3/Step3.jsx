@@ -3,16 +3,16 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { useDispatch, useSelector } from "react-redux";
-import { setNeedDesign } from "../../store/calculateSlice";
+import { setNeedDesign, addStepData } from "../../store/calculateSlice";
 
 const DesignData = [
-  { label: "Yes" },
+  { label: "Yes", hourMin: 2, hourMax: 3, priceMin: 300, priceMax: 420},
   {
-    label: "No",
+    label: "No", hourMin: 0, hourMax: 0, priceMin: 0, priceMax: 0
   },
 ];
 
-function Step3({setIsSomethingSelected}) {
+function Step3({setIsSomethingSelected, activeStep}) {
   //const [ needDesign, setNeedDesign] = React.useState("");
 
   const dispatch = useDispatch();
@@ -20,7 +20,8 @@ function Step3({setIsSomethingSelected}) {
 
   const handleDesign = (designLabel) => {
     setIsSomethingSelected(true);
-    dispatch(setNeedDesign(designLabel));
+    dispatch(setNeedDesign(designLabel.label));
+    dispatch(addStepData({ step: activeStep, data: designLabel }));
     console.info(`Selected platform: ${designLabel}`);
   };
 
@@ -31,7 +32,7 @@ function Step3({setIsSomethingSelected}) {
         {DesignData.map((design, index) => (
           <Chip
             label={design.label}
-            onClick={() => handleDesign(design.label)}
+            onClick={() => handleDesign(design)}
             className={`calculate-chip ${
               needDesign === design.label ? "selected" : ""
             }`}
