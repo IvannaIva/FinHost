@@ -1,33 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { TextField, Button } from "@mui/material";
 
-import { useDispatch } from "react-redux";
-import { clearState, clearCalculate } from "../../store/calculateSlice";
+
+
 import "../VerticalLinearStepper.css";
 
 const EmailForm = () => {
-  const dispatch = useDispatch();
+
   const [email, setEmail] = useState("");
 
-  //   useEffect(() => {
-  //     dispatch(clearState());
-
-  //  }, []);
   const {
     register,
     handleSubmit,
     formState: { errors, isValid },
   } = useForm();
 
-  useEffect(() => {
-    if (isValid || email) {
-      dispatch(clearState());
-    }
-  }, [isValid]);
+
 
   const handleGenerateSubmit = () => {
-    // dispatch(clearCalculate());
+
     console.log("email", email);
     if (isValid || email) {
       window.location.href = "https://www.google.com";

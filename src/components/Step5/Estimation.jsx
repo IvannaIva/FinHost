@@ -1,14 +1,11 @@
-import React, { useState, useEffect } from "react";
-import QRCode from "qrcode.react";
-import { useDispatch, useSelector } from "react-redux";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
+import React from "react";
+
 import EmailForm from "./EmailForm";
 import CardCulc from "./CardCulc";
 
 
 
-const Estimation = ({}) => {
+const Estimation = () => {
 
   return (
     <div className="calculate-finish">

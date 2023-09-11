@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
@@ -7,14 +7,15 @@ import { useDispatch } from "react-redux";
 import { Circle } from "@mui/icons-material"; 
 import Button from "@mui/material/Button";
 
+import { clearState } from "../store/calculateSlice"
+
 import Step2 from "./Step2/Step2";
 import Step1 from "./Step1/Step1";
 import Step4 from "./Step4/Step4";
 import Step3 from "./Step3/Step3";
 import Step5 from "./Step5/Step5";
 import "./VerticalLinearStepper.css";
-import { setAllStepsCompleted } from "../store/calculateSlice";
-import style from "./styles/buttons.module.css";
+
 
 const steps = [
   {
@@ -41,6 +42,12 @@ export default function VerticalLinearStepper({ setAllStepsCompleted }) {
   const [isSomethingSelected, setIsSomethingSelected] = React.useState(true);
   const colorBasic = '#03d6a1';
   const dispatch = useDispatch();
+
+    useEffect(() => {
+      dispatch(clearState());
+
+   }, []);
+
 
   const handleNext = () => {
     if (activeStep === steps.length - 1) {

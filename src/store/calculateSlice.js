@@ -36,9 +36,7 @@ const calculateSlice = createSlice({
             state.stepData[step] = data; // Зберігаємо обраний об'єкт для конкретного кроку
         },
 
-        clearCalculate: (state) => {
-            state.calculate = initialState.calculate; // Скидаємо дані в calculate до початкового стану для цього ключа
-        },
+
 
         clearState: () => initialState,
     },

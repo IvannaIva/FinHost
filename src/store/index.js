@@ -12,7 +12,7 @@ import {
 import storage from "reduxjs-toolkit-persist/lib/storage";
 import configReducer from "./configSlice";
 import calculateReduser from "./calculateSlice";
-// import { clearState } from "./clearState";
+
 
 const rootReducer = combineReducers({
     config: configReducer,
